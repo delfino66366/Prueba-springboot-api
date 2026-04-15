@@ -1,0 +1,49 @@
+openapi: 3.0.0
+info:
+  title: API Usuarios
+  description: API CRUD de usuarios
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8080
+
+paths:
+  /usuarios:
+    get:
+      summary: Obtener todos los usuarios
+      responses:
+        '200':
+          description: Lista de usuarios
+
+    post:
+      summary: Crear usuario
+      requestBody:
+        required: true
+      responses:
+        '201':
+          description: Usuario creado
+
+  /usuarios/{id}:
+    get:
+      summary: Obtener usuario por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Usuario encontrado
+
+    put:
+      summary: Actualizar usuario
+      responses:
+        '200':
+          description: Usuario actualizado
+
+    delete:
+      summary: Eliminar usuario
+      responses:
+        '204':
+          description: Usuario eliminado
